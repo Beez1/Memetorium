@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-view',
-  standalone: true,
-  imports: [],
   templateUrl: './view.component.html',
-  styleUrl: './view.component.css'
+  styleUrls: ['./view.component.css']
 })
 export class ViewComponent {
+  memes = ['meme1.jpg', 'meme2.png', 'meme3.gif']; // Example memes
 
+  constructor() { }
 }

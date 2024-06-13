@@ -2,11 +2,16 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-meme',
-  standalone: true,
-  imports: [],
   templateUrl: './meme.component.html',
-  styleUrl: './meme.component.css'
+  styleUrls: ['./meme.component.css']
 })
 export class MemeComponent {
+  memes: { name: string, url: string }[] = [];
 
+  onMemeUpload(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.memes.push({ name: file.name, url: URL.createObjectURL(file) });
+    }
+  }
 }
