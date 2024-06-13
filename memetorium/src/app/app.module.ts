@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router'; // Import RouterModule
+import { AppRoutingModule } from './app-routing.module'; // Assuming you have AppRoutingModule
+
 import { AppComponent } from './app.component';
 import { MemeComponent } from './meme/meme.component';
 import { ViewComponent } from './view/view.component';
-import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    RouterModule // Include RouterModule here
   ],
   providers: [],
   bootstrap: [AppComponent]

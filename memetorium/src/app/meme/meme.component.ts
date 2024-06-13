@@ -1,17 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterOutlet, RouterModule } from '@angular/router';  
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-meme',
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, RouterModule, FormsModule],  
   templateUrl: './meme.component.html',
-  styleUrls: ['./meme.component.css']
+  styleUrl: './meme.component.css'
 })
 export class MemeComponent {
-  memes: { name: string, url: string }[] = [];
-
-  onMemeUpload(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.memes.push({ name: file.name, url: URL.createObjectURL(file) });
-    }
-  }
+  
 }
