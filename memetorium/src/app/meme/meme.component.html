@@ -17,6 +17,9 @@
         <p class="welcome-text">Memetorium is your ultimate meme vault. Upload your hilarious creations, explore the meme universe, and share the laughs with everyone.</p>
         <p class="welcome-text">Tired of losing your precious memes right when you need them the most? Fear not! At Memetorium, we’re waging a heroic battle against the menace of lost memes. Upload your memes and we’ll give you a unique ID to retrieve them anytime, anywhere!</p>
         <p class="welcome-text">Join the fun, save your favorites, and never lose a meme again!</p>
+        <div class="view-memes-container">
+            <button class="view-memes-button" [routerLink]="'/view'">View Memes here</button>
+        </div>          
     </div>
 </div>
 
@@ -29,9 +32,16 @@
         <div class="form-group">
             <label for="meme-tags" class="tags-label">Meme Tags:</label>
             <input type="text" id="meme-tags" class="tags-input" placeholder="Enter tags">
-            <span class="tooltip">?</span>
-            <div class="tooltip-text">Meme tags help you categorize and recall your memes easily.</div>
-        </div>
+            <div class="tags-container">
+                <div class="tags">
+                    What are tags?
+                </div>
+                <div class="tagdropdwn">
+                    Meme tags help you categorize and recall your memes easily.
+                </div>
+            </div>
+</div>            
         <button type="submit" class="upload-button">Upload</button>
     </form>
 </div>
+
