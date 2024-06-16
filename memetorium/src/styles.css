@@ -1,0 +1,8 @@
+
+  
+  /* Setting background image */
+  body {
+    background-image: url("./app/img/pexels-francesco-ungaro-281260.jpg");
+    background-size: cover; /* Optional: Makes the image cover the entire background */
+    background-repeat: no-repeat; 
+  }
