@@ -1,0 +1,44 @@
+.search-container {
+    display: flex;
+    justify-content: center; /* Center the search bar horizontally */
+    align-items: center; /* Center the search bar vertically */
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
+.search-input {
+    padding: 10px 20px; /* Add padding for a comfortable size */
+    border: 1px solid #87CEEB; /* Sky blue border */
+    border-radius: 20px 0 0 20px; /* Rounded corners for the left side */
+    outline: none; /* Remove default outline */
+    font-size: 16px; /* Larger font size */
+    color: #000; /* Black text */
+    background-color: #fff; /* White background */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    width: 700px; /* Make the search input longer */
+}
+
+.search-input:focus {
+    border-color: #4682B4; /* Darker blue border on focus */
+}
+
+.search-button {
+    padding: 10px 20px; /* Add padding for a comfortable size */
+    background-color: #87CEEB; /* Sky blue background */
+    color: #fff; /* White text */
+    border: 1px solid #87CEEB; /* Sky blue border */
+    border-left: none; /* Remove border between input and button */
+    border-radius: 0 20px 20px 0; /* Rounded corners for the right side */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Larger font size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.search-button:hover {
+    background-color: #4682B4; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.search-button:active {
+    background-color: #1E90FF; /* Different blue when the button is pressed */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+}
