@@ -4,3 +4,111 @@
     background-size: cover; /* Optional: Makes the image cover the entire background */
     background-repeat: no-repeat; 
   }
+
+  .navbar {
+    background-color: #87CEEB;
+    padding: 5px 0px;
+    margin: 0;
+    width: 100%;
+}
+
+.navbar-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+/* Applying styles to the search bar */
+.navbar-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1; /* Added to occupy remaining space */
+}
+
+.navbar-search input[type="text"] {
+    padding: 8px 16px;
+    border: 2px solid white; /* White border */
+    border-radius: 20px;
+    outline: none; 
+    font-size: 16px;
+    color: white; /* White text */
+    background-color: transparent; /* Transparent background */
+    transition: border-color 0.3s ease;
+}
+
+.navbar-search input[type="text"]:focus {
+    border-color: #7b32a8; /* Grey border on focus */
+}
+
+.navbar-search button {
+    padding: 8px 16px;
+    background-color:white; /* White background */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px; /* Added margin to separate the input and button */
+    transition: transform 0.3s ease;
+}
+
+.navbar-search button:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Applying styles to the links container */
+.navbar-links {
+        display: flex; /* Enable flexbox layout */
+        justify-content: center; /* Center the items horizontally */
+}
+
+/* Applying styles to the links */
+.navbar-links a {
+    color:  white; /* White text */
+    text-decoration: none;
+    margin: 0 15px; /* Adjust spacing between links */
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: #ffffff; /* White underline */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #7b32a8; /* Grey text on hover */
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+    left: 0; /* Slide underline from center to left on hover */
+}
+
+/* Adjust the layout for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 600px) {
+    .navbar-search {
+        justify-content: flex-end; /* Align search to the right */
+    }
+
+    .navbar-search button {
+        margin-left: 0; /* Remove margin between input and button */
+    }
+
+    .navbar-links {
+        text-align: center; /* Center align links */
+    }
+}
