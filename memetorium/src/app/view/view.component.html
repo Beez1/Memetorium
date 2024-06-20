@@ -2,3 +2,14 @@
     <input type="text" class="search-input" placeholder="Search for memes...">
     <button class="search-button">🔍</button>
 </div>
+<div class="gallery">
+    <div class="gallery-item" (click)="showImageInLightbox()">
+      <img [src]="imageUrl" alt="Gallery Image" class="gallery-image">
+    </div>
+  </div>
+  
+  <div class="lightbox" *ngIf="lightboxVisible" (click)="closeLightbox()">
+    <span class="close">&times;</span>
+    <img [src]="lightboxImageSrc" alt="Lightbox Image" class="lightbox-content">
+  </div>
+  
