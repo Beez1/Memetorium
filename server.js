@@ -1,22 +1,22 @@
-const express = require("express");
-const mongoose = require("mongoose");
-require('dotenv').config(); // Load environment variables from .env file
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
-
-const uri = process.env.MONGO_URI;
-const port = process.env.PORT || 3000;
-
-mongoose.connect(uri)
-  .then(() => console.log('Database connection successful'))
-  .catch((err) => console.error('Database connection error:', err));
+const mongoString = process.env.DATABASE_URL;
+mongoose.connect(mongoString);
+const database = mongoose.connection;
 
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.listen(1000, () => {
+    console.log('Server is running');
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+database.on('error', (error) => {
+    console.log('Error connecting to database', error);
+});
+
+
+database.once('connected', () => {
+    console.log('db connected');
 });
