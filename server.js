@@ -1,20 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require('dotenv').config(); // Load environment variables from .env file
+
 const app = express();
 
-const uri = "mongodb+srv://emmabassey50:<Telepizza1>@zbcloud.ya6t6fo.mongodb.net/?retryWrites=true&w=majority&appName=zbcloud";
+const uri = process.env.MONGO_URI;
+const port = process.env.PORT || 3000;
 
-async function connect() {
-    try{
-        await mongoose.connect(uri);
-        console.log("Connected to mongob");
-    } catch (error){
-        console.error(error);
-    }
-}
+mongoose.connect(uri)
+  .then(() => console.log('Database connection successful'))
+  .catch((err) => console.error('Database connection error:', err));
 
-connect();
+app.use(express.json());
 
-app.listen(300, () => {
-    console.log("Server started on port 8000");
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });

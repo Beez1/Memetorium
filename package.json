@@ -2,9 +2,21 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
     "multer": "^1.4.5-lts.1"
-  }
+  },
+  "name": "memetorium",
+  "version": "1.0.0",
+  "description": "Welcome to Memetorium, your go-to hub for sharing and discovering memes! This personal project, built with Angular and Node.js, offers a platform for users to upload, explore, and download a variety of memes. Currently a work in progress.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
