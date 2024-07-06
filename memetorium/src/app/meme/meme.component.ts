@@ -12,5 +12,19 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule, FormsModule, RouterModule],
 })
 export class MemeComponent {
-  
+
+  constructor(private http: HttpClient) {}
+
+  submitForm(ev: Event) {
+    ev.preventDefault();
+
+    const formData = new FormData(ev.target as HTMLFormElement)
+
+    this.http.post('http://localhost:4201/meme', formData)
+      .subscribe({
+        next: (response: any) => alert(response.message),
+        error: (error) => alert(error.error.message),
+        complete: () => console.log('Sent values')
+      });
   }
+}

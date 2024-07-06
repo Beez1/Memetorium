@@ -11,14 +11,14 @@
     </div>
 </div>
 <div class="upload-container">
-    <form class="upload-form">
+    <form class="upload-form" (submit)="submitForm($event)">
         <div class="form-group">
             <label for="upload-input" class="upload-label">Drop your photo/video here:</label>
-            <input type="file" id="upload-input" class="upload-input" accept="image/*,video/*">
+            <input type="file" id="upload-input" class="upload-input" accept="image/*,video/*" name="file">
         </div>
         <div class="form-group">
             <label for="meme-tags" class="tags-label">Meme Tags:</label>
-            <input type="text" id="meme-tags" class="tags-input" placeholder="Enter tags">
+            <input type="text" id="meme-tags" name="tags" class="tags-input" placeholder="Enter tags">
             <div class="tags-container">
                 <div class="tags">
                     What are tags?
@@ -31,4 +31,5 @@
         <button type="submit" class="upload-button">Upload</button>
     </form>
 </div>
+
 

@@ -10,11 +10,11 @@ const memeSchema = new mongoose.Schema({
     type: [String], // Array of tags
     required: true
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
+  mimetype: {
+    type: String, // MIME type of the image
+    required: true
   }
-});
+}, {timestamps: true});
 
 // Create Meme model
 const Meme = mongoose.model('Meme', memeSchema);

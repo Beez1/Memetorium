@@ -2,19 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 4200;
+// app.use(cors({origin: ['http://localhost:4200']}));
+app.use(cors());
+app.use(express.json());
+const port = process.env.PORT || 4201;
 const mongoURI = process.env.DATABASE_URL;
 
 // MongoDB connection
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -30,23 +31,20 @@ const upload = multer({ storage: storage });
 const Meme = require('./models/meme'); // Adjust the path as per your project structure
 
 // API endpoint to handle file upload
-app.post('/api/upload', upload.single('file'), async (req, res) => {
+app.post('/meme', upload.single('file'), async (req, res) => {
   try {
     if (!req.file) {
-      return res.status(400).json({ message: 'No file uploaded' });
+      return res.status(400).json({ message: 'Please upload a file' });
     }
 
-    const { buffer } = req.file;
-    const { tags } = req.body;
+    const newMeme = await Meme.create({
+      image: req.file.buffer,
+      mimetype: req.file.mimetype,
+      tags: req.body.tags.split(',').map(x => x.trim()) // break them up by comma, and remove redundant spaces
+    }) 
 
-    // Create a new Meme document
-    const newMeme = new Meme({
-      image: buffer,
-      tags,
-    });
-
-    // Save the Meme document to the database
-    await newMeme.save();
+    // 1st step               2nd step                    3rd step
+    // beez, alfred, messi [beez, ' alfred', ' meesi'] [beez, alfred, messi]
 
     res.status(201).json({ message: 'File uploaded successfully', meme: newMeme });
   } catch (error) {
