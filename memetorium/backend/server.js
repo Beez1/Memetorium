@@ -53,6 +53,22 @@ app.post('/meme', upload.single('file'), async (req, res) => {
   }
 });
 
+// Route to fetch all memes
+app.get('/meme', async (req, res) => {
+  try {
+    const memes = await Meme.find();
+    const formattedMemes = memes.map(meme => ({
+      _id: meme._id,
+      tags: meme.tags,
+      image: `data:${meme.mimetype};base64,${meme.image.toString('base64')}`
+    }));
+    res.json(formattedMemes);
+  } catch (error) {
+    console.error('Error fetching memes:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

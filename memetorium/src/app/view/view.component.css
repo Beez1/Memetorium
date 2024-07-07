@@ -105,3 +105,31 @@
     cursor: pointer;
   }
   
+  .meme-item {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .meme-item ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  .meme-item ul li {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 3px;
+  }
+  
+  .meme-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }

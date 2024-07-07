@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router'; // Import RouterModule
-import { AppRoutingModule } from './app-routing.module'; // Assuming you have AppRoutingModule
-
-
+import { CommonModule } from '@angular/common'; // Import CommonModule
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule if needed
+import { AppComponent } from './app.component';
+import { ViewComponent } from './view/view.component'; // Adjust path as per your project structure
 
 @NgModule({
   declarations: [
-   
+    ViewComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    RouterModule // Include RouterModule here
+    CommonModule, // Ensure CommonModule is imported
+    HttpClientModule // Import HttpClientModule if you are using HttpClient
+    // Other modules as needed
   ],
   providers: [],
   bootstrap: []
