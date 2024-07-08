@@ -15,6 +15,7 @@ interface Meme {
 export class ViewComponent implements OnInit {
 
   memes: Meme[] = [];
+  searchQuery: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -23,17 +24,22 @@ export class ViewComponent implements OnInit {
   }
 
   fetchMemes() {
-    this.http.get<any[]>('http://localhost:4201/meme')
+    let apiUrl = 'http://localhost:4201/meme';
+
+    if (this.searchQuery.trim() !== '') {
+      apiUrl += `?search=${this.searchQuery.trim()}`;
+    }
+
+    this.http.get<any[]>(apiUrl)
       .subscribe({
         next: (memes: any[]) => {
           this.memes = memes.map(meme => ({
             _id: meme._id,
             tags: meme.tags,
-            image: meme.image // Assign the Base64 image data
+            image: meme.image
           }));
           console.log('Memes fetched successfully:', this.memes);
 
-          // Call function to display memes dynamically
           this.displayMemes();
         },
         error: (error) => {
@@ -47,15 +53,15 @@ export class ViewComponent implements OnInit {
     const container = document.getElementById('memeContainer');
 
     if (container) {
-      container.innerHTML = ''; // Clear previous memes
+      container.innerHTML = '';
 
       this.memes.forEach(meme => {
         const memeItem = document.createElement('div');
         memeItem.classList.add('meme-item');
 
-        const tagsList = document.createElement('ul');
+        const tagsList = document.createElement('div');
         meme.tags.forEach(tag => {
-          const tagItem = document.createElement('li');
+          const tagItem = document.createElement('span');
           tagItem.textContent = tag;
           tagsList.appendChild(tagItem);
         });

@@ -3,19 +3,22 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const sharp = require('sharp'); // Import sharp for image processing
+const path = require('path');
+const fs = require('fs');
 
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
-// app.use(cors({origin: ['http://localhost:4200']}));
 app.use(cors());
 app.use(express.json());
+
 const port = process.env.PORT || 4201;
 const mongoURI = process.env.DATABASE_URL;
 
 // MongoDB connection
-mongoose.connect(mongoURI);
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -37,14 +40,16 @@ app.post('/meme', upload.single('file'), async (req, res) => {
       return res.status(400).json({ message: 'Please upload a file' });
     }
 
-    const newMeme = await Meme.create({
-      image: req.file.buffer,
-      mimetype: req.file.mimetype,
-      tags: req.body.tags.split(',').map(x => x.trim()) // break them up by comma, and remove redundant spaces
-    }) 
+    // Resize and crop image using sharp
+    const processedImageBuffer = await sharp(req.file.buffer)
+      .resize({ width: 300, height: 300, fit: 'cover' }) // Adjust dimensions as needed
+      .toBuffer();
 
-    // 1st step               2nd step                    3rd step
-    // beez, alfred, messi [beez, ' alfred', ' meesi'] [beez, alfred, messi]
+    const newMeme = await Meme.create({
+      image: processedImageBuffer, // Save processed image buffer
+      mimetype: req.file.mimetype,
+      tags: req.body.tags.split(',').map(x => x.trim())
+    });
 
     res.status(201).json({ message: 'File uploaded successfully', meme: newMeme });
   } catch (error) {
