@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT || 4201;
+const port = process.env.PORT || 4202;
 const mongoURI = process.env.DATABASE_URL;
 
 // MongoDB connection
@@ -44,6 +44,7 @@ app.post('/meme', upload.single('file'), async (req, res) => {
     const processedImageBuffer = await sharp(req.file.buffer)
       .resize({ width: 300, height: 300, fit: 'cover' }) // Adjust dimensions as needed
       .toBuffer();
+      
 
     const newMeme = await Meme.create({
       image: processedImageBuffer, // Save processed image buffer

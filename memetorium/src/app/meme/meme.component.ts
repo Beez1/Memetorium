@@ -20,7 +20,7 @@ export class MemeComponent {
 
     const formData = new FormData(ev.target as HTMLFormElement)
 
-    this.http.post('http://localhost:4201/meme', formData)
+    this.http.post('http://localhost:4202/meme', formData)
       .subscribe({
         next: (response: any) => alert(response.message),
         error: (error) => alert(error.error.message),
