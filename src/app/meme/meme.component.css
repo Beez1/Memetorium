@@ -1,33 +1,36 @@
 
-/* Modernized styles with original design elements */
+/* Applying styles to the navbar */
+/* Applying styles to the navbar */
 .welcome-div {
-    border: 2px solid #F0E68C; /* Retaining the yellow border */
-    padding: 24px;
-    border-radius: 12px; /* Slightly more rounded corners */
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for depth */
-    background-color: #87CEEB; /* Keeping the sky blue background */
+    border: 2px solid #F0E68C; /* Yellow border */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #87CEEB; /* Sky blue background */
     width: 80%;
-    max-width: 750px;
-    margin: 120px auto;
+    max-width: 800px;
+    height: auto;
+    margin: 140px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #FFF; /* White text */
+    color: #fff; /* White text */
 }
 
+
+
 .view-memes-button {
-    background-color: #4682B4; /* Adjusted to a darker blue */
-    color: #FFF; /* White text */
-    padding: 12px 24px;
-    border: none;
-    border-radius: 6px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration:
+    background-color: #87CEEB; /* Sky blue background */
+    color: #fff; /* White text */
+    padding: 10px 20px; /* Add padding for a larger button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    text-decoration: none; /* Remove underline */
 }
 
 .view-memes-button:hover {
