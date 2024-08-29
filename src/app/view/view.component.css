@@ -1,78 +1,100 @@
 .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .search-input {
-    padding: 10px 20px;
-    border: 1px solid #87CEEB;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-    font-size: 16px;
-    color: #000;
-    background-color: #fff;
-    transition: border-color 0.3s ease;
-    width: 700px;
-  }
-  
-  .search-input:focus {
-    border-color: #4682B4;
-  }
-  
-  .search-button {
-    padding: 10px 20px;
-    background-color: #87CEEB;
-    color: #fff;
-    border: 1px solid #87CEEB;
-    border-left: none;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .search-button:hover {
-    background-color: #4682B4;
-    transform: scale(1.05);
-  }
-  
-  .search-button:active {
-    background-color: #1E90FF;
-    transform: scale(0.95);
-  }
-  
-  .meme-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .meme-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .meme-item img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .meme-item div {
-    margin-bottom: 10px;
-  }
-  
-  .meme-item span {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.search-input {
+  padding: 12px 24px;
+  border: 2px solid #87CEEB;
+  border-radius: 25px;
+  outline: none;
+  font-size: 18px;
+  color: #000;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  width: 600px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  border-color: #4682B4;
+  box-shadow: 0 0 10px rgba(70, 130, 180, 0.3);
+}
+
+.search-button {
+  padding: 12px 24px;
+  background-color: #87CEEB;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  margin-left: -50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-button:hover {
+  background-color: #4682B4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.search-button:active {
+  background-color: #1E90FF;
+  transform: translateY(1px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.meme-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 30px;
+}
+
+.meme-item {
+  border: none;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.meme-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.meme-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.meme-item div {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.meme-item span {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #87CEEB;
+  color: #fff;
+  border-radius: 20px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.meme-item span:hover {
+  background-color: #4682B4;
+}
