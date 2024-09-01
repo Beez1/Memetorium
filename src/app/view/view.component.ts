@@ -88,10 +88,6 @@ export class ViewComponent implements OnInit {
     if (!container) return;
 
     container.innerHTML = '';
-    container.style.display = 'flex';
-    container.style.flexWrap = 'wrap';
-    container.style.justifyContent = 'space-between';
-
     this.memes.forEach(meme => {
       const memeItem = this.createMemeItem(meme);
       container.appendChild(memeItem);
@@ -101,9 +97,6 @@ export class ViewComponent implements OnInit {
   private createMemeItem(meme: Meme): HTMLElement {
     const memeItem = document.createElement('div');
     memeItem.classList.add('meme-item');
-    memeItem.style.width = 'calc(33.33% - 10px)';
-    memeItem.style.marginBottom = '20px';
-    memeItem.style.boxSizing = 'border-box';
 
     const tagsList = this.createTagsList(meme.tags);
     const image = this.createMemeImage(meme.image);
@@ -116,14 +109,9 @@ export class ViewComponent implements OnInit {
 
   private createTagsList(tags: string[]): HTMLElement {
     const tagsList = document.createElement('div');
-    tagsList.style.marginBottom = '10px';
     tags.forEach(tag => {
       const tagItem = document.createElement('span');
       tagItem.textContent = tag;
-      tagItem.style.marginRight = '5px';
-      tagItem.style.padding = '2px 5px';
-      tagItem.style.backgroundColor = '#f0f0f0';
-      tagItem.style.borderRadius = '3px';
       tagsList.appendChild(tagItem);
     });
     return tagsList;
@@ -133,9 +121,6 @@ export class ViewComponent implements OnInit {
     const image = document.createElement('img');
     image.src = imageUrl;
     image.alt = 'Meme';
-    image.style.width = '100%';
-    image.style.height = 'auto';
-    image.style.objectFit = 'cover';
     return image;
   }
 }
