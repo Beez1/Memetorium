@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FooterComponent } from '../footer/footer.component';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-meme',
   standalone: true,
   templateUrl: './meme.component.html',
   styleUrls: ['./meme.component.css'],
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, FooterComponent, NavComponent],
 })
 export class MemeComponent {
 
@@ -20,7 +22,7 @@ export class MemeComponent {
 
     const formData = new FormData(ev.target as HTMLFormElement)
 
-    this.http.post('https://memetorium.onrender.com/meme', formData)
+    this.http.post('http://localhost:4202/meme', formData)
       .subscribe({
         next: (response: any) => alert(response.message),
         error: (error) => alert(error.error.message),

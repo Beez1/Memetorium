@@ -1,9 +1,12 @@
+<app-nav></app-nav>
 <div class="search-container">
-    <input type="text" class="search-input" placeholder="Search for memes...">
-    <button class="search-button" (click)="fetchMemes()">🔍</button>
+  <div class="search-bar-wrapper">
+    <input type="text" class="search-input" placeholder="Find the funniest memes...">
+    <button class="search-button" (click)="fetchMemes()">
+      <span class="search-icon">🔍</span>
+      <span class="search-text">Search</span>
+    </button>
   </div>
-  <div class="meme-container" id="memeContainer">
-  
-  </div>
-  
- 
+</div>
+<div class="meme-grid" id="memeContainer"></div>
+<app-footer></app-footer>

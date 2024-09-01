@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { FooterComponent } from '../footer/footer.component';
+import { RouterModule } from '@angular/router';
+import { NavComponent } from '../nav/nav.component';
 interface Meme {
   _id: string;
   tags: string[];
@@ -10,7 +12,9 @@ interface Meme {
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
-  styleUrls: ['./view.component.css']
+  styleUrls: ['./view.component.css'],
+  standalone: true,
+  imports: [FooterComponent, NavComponent, RouterModule]
 })
 export class ViewComponent implements OnInit {
 
@@ -24,7 +28,7 @@ export class ViewComponent implements OnInit {
   }
 
   fetchMemes() {
-    let apiUrl = 'https://memetorium.onrender.com/meme';
+    let apiUrl = 'http://localhost:4202/meme';
 
     if (this.searchQuery.trim() !== '') {
       apiUrl += `?search=${this.searchQuery.trim()}`;
@@ -75,5 +79,27 @@ export class ViewComponent implements OnInit {
         container.appendChild(memeItem);
       });
     }
+  }
+
+  searchMemesByTag(tag: string) {
+    let apiUrl = `http://localhost:4202/meme?tag=${tag}`;
+
+    this.http.get<any[]>(apiUrl)
+      .subscribe({
+        next: (memes: any[]) => {
+          this.memes = memes.map(meme => ({
+            _id: meme._id,
+            tags: meme.tags,
+            image: meme.image
+          }));
+          console.log('Memes fetched successfully:', this.memes);
+
+          this.displayMemes();
+        },
+        error: (error) => {
+          alert('Error fetching memes: ' + error.error.message);
+          console.error('Error fetching memes:', error);
+        }
+      });
   }
 }
