@@ -28,7 +28,7 @@ export class ViewComponent implements OnInit {
   }
 
   fetchMemes() {
-    let apiUrl = 'http://localhost:4202/meme';
+    let apiUrl = 'https://memetorium.onrender.com/meme';
 
     if (this.searchQuery.trim() !== '') {
       apiUrl += `?search=${this.searchQuery.trim()}`;
