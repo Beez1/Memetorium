@@ -82,7 +82,7 @@ export class ViewComponent implements OnInit {
   }
 
   searchMemesByTag(tag: string) {
-    let apiUrl = `http://localhost:4202/meme?tag=${tag}`;
+    let apiUrl = `https://memetorium.onrender.com/meme?tag=${tag}`;
 
     this.http.get<any[]>(apiUrl)
       .subscribe({
