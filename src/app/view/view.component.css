@@ -3,38 +3,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 80px 0; /* Increased margin for more space */
+  margin: 40px 0; /* Reduced margin for mobile */
+  padding: 0 20px; /* Added padding for mobile */
 }
 
 /* Search Bar Wrapper */
 .search-bar-wrapper {
   display: flex;
+  flex-direction: column; /* Changed to column for mobile */
   align-items: center;
   background: linear-gradient(135deg, #ff0077, #2c3e50);
-  padding: 5px;
-  border-radius: 50px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  border-radius: 25px; /* Reduced border-radius for mobile */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
   width: 100%;
-  max-width: 800px;
+  max-width: 100%; /* Changed to 100% for mobile */
   transition: transform 0.3s ease;
 }
 
 .search-bar-wrapper:hover {
-  transform: scale(1.05);
+  transform: scale(1.02); /* Reduced scale for mobile */
 }
 
 /* Search Input Styling */
 .search-input {
-  padding: 18px 20px;
+  padding: 15px;
   border: none;
-  border-radius: 50px;
+  border-radius: 25px; /* Reduced border-radius for mobile */
   outline: none;
-  font-size: 18px;
+  font-size: 16px; /* Reduced font size for mobile */
   color: #333;
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   transition: all 0.3s ease;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; /* Added margin for spacing */
 }
 
 .search-input::placeholder {
@@ -51,88 +54,90 @@
 .search-button {
   display: flex;
   align-items: center;
-  padding: 18px 28px;
+  justify-content: center;
+  padding: 15px 20px;
   background-color: #ff0077;
   color: #fff;
   border: none;
-  border-radius: 50px;
+  border-radius: 25px; /* Reduced border-radius for mobile */
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px; /* Reduced font size for mobile */
   font-weight: bold;
-  margin-left: -60px;
+  width: 100%; /* Full width for mobile */
   transition: all 0.3s ease;
-  box-shadow: 0 8px 15px rgba(255, 0, 119, 0.3);
+  box-shadow: 0 5px 10px rgba(255, 0, 119, 0.3);
+  margin-left: 0; /* Removed negative margin */
 }
 
 .search-button:hover {
   background-color: #ff3366;
-  transform: scale(1.1);
-  box-shadow: 0 12px 20px rgba(255, 0, 119, 0.4);
+  transform: scale(1.05); /* Reduced scale for mobile */
+  box-shadow: 0 8px 15px rgba(255, 0, 119, 0.4);
 }
 
 .search-button:active {
   background-color: #cc0055;
-  transform: scale(0.95);
-  box-shadow: 0 4px 10px rgba(255, 0, 119, 0.2);
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(255, 0, 119, 0.2);
 }
 
 /* Search Button Text and Icon */
 .search-icon {
-  font-size: 22px;
-  margin-right: 10px;
+  font-size: 20px; /* Reduced font size for mobile */
+  margin-right: 8px;
 }
 
 .search-text {
-  font-size: 18px;
+  font-size: 16px; /* Reduced font size for mobile */
 }
 
 /* Meme Grid and Items Styling */
 .meme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
-  padding: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reduced minimum width for mobile */
+  gap: 20px; /* Reduced gap for mobile */
+  padding: 20px; /* Reduced padding for mobile */
 }
 
 .meme-item {
   border: none;
-  padding: 20px;
+  padding: 15px; /* Reduced padding for mobile */
   text-align: center;
   background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.1);
+  border-radius: 10px; /* Reduced border-radius for mobile */
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
   transition: all 0.3s ease;
 }
 
 .meme-item:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(52, 152, 219, 0.15);
+  transform: translateY(-5px) scale(1.01); /* Reduced transform for mobile */
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.15);
 }
 
 .meme-item img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  margin-bottom: 15px; /* Reduced margin for mobile */
+  border-radius: 8px; /* Reduced border-radius for mobile */
 }
 
 .meme-item div {
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced margin for mobile */
   color: #333;
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 14px; /* Reduced font size for mobile */
+  line-height: 1.4;
 }
 
 .meme-item span {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 6px 12px; /* Reduced padding for mobile */
   background-color: #3498db;
   color: #fff;
-  border-radius: 20px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  font-size: 14px;
+  border-radius: 15px; /* Reduced border-radius for mobile */
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 12px; /* Reduced font size for mobile */
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -140,5 +145,62 @@
 .meme-item span:hover {
   background-color: #2980b9;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.1);
+  box-shadow: 0 3px 8px rgba(52, 152, 219, 0.1);
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+  .search-container {
+    margin: 80px 0;
+  }
+
+  .search-bar-wrapper {
+    flex-direction: row;
+    padding: 5px;
+    border-radius: 50px;
+    max-width: 800px;
+  }
+
+  .search-input {
+    padding: 18px 20px;
+    font-size: 18px;
+    border-radius: 50px;
+    margin-bottom: 0;
+  }
+
+  .search-button {
+    padding: 18px 28px;
+    font-size: 18px;
+    border-radius: 50px;
+    width: auto;
+    margin-left: -60px;
+  }
+
+  .search-icon {
+    font-size: 22px;
+    margin-right: 10px;
+  }
+
+  .search-text {
+    font-size: 18px;
+  }
+
+  .meme-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 50px;
+  }
+
+  .meme-item {
+    padding: 20px;
+  }
+
+  .meme-item div {
+    font-size: 16px;
+  }
+
+  .meme-item span {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
