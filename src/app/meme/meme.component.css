@@ -1,10 +1,9 @@
-/* Applying styles to the navbar */
 .welcome-div, .upload-container {
-    border: 3px solid #ff0077; /* Bright pink border */
+    border: 3px solid #ff0077;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25); /* Stronger shadow */
-    background-color: #2c3e50; /* Dark blue-gray background */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
+    background-color: #2c3e50;
     width: 90%;
     max-width: 1000px;
     margin: 160px auto;
@@ -13,11 +12,11 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #ecf0f1; /* Light gray text */
+    color: #ecf0f1;
 }
 
 .view-memes-button, .upload-button {
-    background-color: #ff0077; /* Bright pink background */
+    background-color: #ff0077;
     color: #fff;
     padding: 15px 30px;
     border: none;
@@ -31,13 +30,13 @@
 }
 
 .view-memes-button:hover, .upload-button:hover {
-    background-color: #ff3366; /* Slightly lighter pink on hover */
-    transform: rotate(-2deg) scale(1.05); /* Rotate and scale for a quirky effect */
+    background-color: #ff3366;
+    transform: rotate(-2deg) scale(1.05);
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.4);
 }
 
 .view-memes-button:active, .upload-button:active {
-    background-color: #cc0055; /* Darker pink on active */
+    background-color: #cc0055;
     transform: rotate(2deg) scale(0.95);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
@@ -46,22 +45,22 @@
     font-size: 4em;
     font-weight: bold;
     margin-bottom: 25px;
-    color: #ff0077; /* Bright pink text */
+    color: #ff0077;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
     letter-spacing: 3px;
-    transform: rotate(-3deg); /* Tilted text for a fun look */
+    transform: rotate(-3deg);
 }
 
 .welcome-text {
     font-size: 1.6em;
     margin-bottom: 25px;
-    color: #ecf0f1; /* Light gray text */
+    color: #ecf0f1;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     line-height: 1.8;
-    background-color: #34495e; /* Darker background behind text */
+    background-color: #34495e;
     padding: 15px;
     border-radius: 10px;
-    transform: rotate(2deg); /* Tilted text for a fun look */
+    transform: rotate(2deg);
 }
 
 .upload-form {
@@ -81,18 +80,18 @@
 
 .upload-label, .tags-label {
     font-size: 1.4em;
-    color: #ff0077; /* Bright pink text */
+    color: #ff0077;
     margin-bottom: 10px;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-    transform: rotate(-2deg); /* Tilted text for a fun look */
+    transform: rotate(-2deg);
 }
 
 .upload-input, .tags-input {
     width: 100%;
     padding: 12px;
-    border: 2px solid #ff0077; /* Pink border */
+    border: 2px solid #ff0077;
     border-radius: 12px;
     outline: none;
     font-size: 1.2em;
@@ -103,8 +102,8 @@
 }
 
 .upload-input:focus, .tags-input:focus {
-    border-color: #ff3366; /* Slightly lighter pink on focus */
-    box-shadow: 0 0 12px rgba(255, 51, 102, 0.6); /* Pink glow on focus */
+    border-color: #ff3366;
+    box-shadow: 0 0 12px rgba(255, 51, 102, 0.6);
 }
 
 .tags-container {
@@ -115,7 +114,7 @@
 
 .tags {
     cursor: pointer;
-    background-color: #ff0077; /* Bright pink background */
+    background-color: #ff0077;
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
@@ -124,19 +123,19 @@
     margin: 8px;
     font-size: 1.2em;
     font-weight: bold;
-    transform: rotate(-2deg); /* Tilted tags for a fun look */
+    transform: rotate(-2deg);
 }
 
 .tags:hover {
-    background-color: #ff3366; /* Slightly lighter pink on hover */
-    transform: rotate(2deg) scale(1.1); /* Rotate and scale on hover */
+    background-color: #ff3366;
+    transform: rotate(2deg) scale(1.1);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .tagdropdwn {
     display: none;
     position: absolute;
-    background-color: rgba(44, 62, 80, 0.95); /* Dark blue-gray background */
+    background-color: rgba(44, 62, 80, 0.95);
     color: #ecf0f1;
     min-width: 220px;
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.3);

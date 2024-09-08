@@ -100,18 +100,24 @@ export class ViewComponent implements OnInit {
 
     const tagsList = this.createTagsList(meme.tags);
     const image = this.createMemeImage(meme.image);
+    const downloadButton = this.createDownloadButton(meme.image);
 
     memeItem.appendChild(tagsList);
     memeItem.appendChild(image);
+    memeItem.appendChild(downloadButton);
 
     return memeItem;
   }
-
   private createTagsList(tags: string[]): HTMLElement {
     const tagsList = document.createElement('div');
+    tagsList.classList.add('tags-list');
     tags.forEach(tag => {
       const tagItem = document.createElement('span');
       tagItem.textContent = tag;
+      tagItem.classList.add('tag-item');
+      tagItem.style.fontWeight = 'bold';
+      tagItem.style.fontFamily = 'Arial, sans-serif';
+      tagItem.style.fontSize = '19px';
       tagsList.appendChild(tagItem);
     });
     return tagsList;
@@ -122,5 +128,32 @@ export class ViewComponent implements OnInit {
     image.src = imageUrl;
     image.alt = 'Meme';
     return image;
+  }
+  private createDownloadButton(imageUrl: string): HTMLElement {
+    const downloadButton = document.createElement('button');
+    downloadButton.classList.add('download-button');
+    downloadButton.textContent = 'Download';
+    downloadButton.style.backgroundColor = '#2c3e50';
+    downloadButton.style.border = 'none';
+    downloadButton.style.color = 'white';
+    downloadButton.style.padding = '10px 20px';
+    downloadButton.style.textAlign = 'center';
+    downloadButton.style.textDecoration = 'none';
+    downloadButton.style.display = 'inline-block';
+    downloadButton.style.fontSize = '16px';
+    downloadButton.style.margin = '4px 2px';
+    downloadButton.style.cursor = 'pointer';
+    downloadButton.style.borderRadius = '4px';
+    downloadButton.addEventListener('click', () => this.downloadImage(imageUrl));
+    return downloadButton;
+  }
+
+  private downloadImage(imageUrl: string) {
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = 'meme.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }
